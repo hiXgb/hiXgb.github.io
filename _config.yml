@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://hiXgb.github.io
-title: 哈哈
-subtitle: A blogging framework for hackers.
+title: GuobiXie
+subtitle: Yesterday You Said Tomorrow
 author: xgb
 simple_search: https://www.google.com/search
-description:
+description: Hi，我是谢国碧，iOS程序猿一枚，热爱生活，喜爱一切美好事物；热爱技术，包容接受新技术。目前正处于积极探索人生的旅途中，世界很大，大到需尽一生时光去体验感受。
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -17,7 +17,7 @@ date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
-subscribe_email: 
+subscribe_email:
 # RSS feeds can list your email address if you like
 email: 444847643@qq.com
 

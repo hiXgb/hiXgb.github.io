@@ -1,0 +1,8 @@
+{
+    "access_key": "-eGyaZIkWrFYEi6InmbI3yCd_PacFoZ0y0fuGDoD",
+    "secret_key": "Cp3GPzF3-mnpu1GbtkCYrzDQjrQFTtodSqEbk1R1",
+    "bucket": "myoctopress",
+    "sync_dir": "public",
+    "async_ops": "",
+    "debug_level": 1
+}
