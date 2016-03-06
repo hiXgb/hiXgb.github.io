@@ -167,6 +167,84 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS沙盒目录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/iOS沙盒目录/" class="article-date">
+  	<time datetime="2016-03-06T15:44:36.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+  </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/iOS沙盒目录/">iOS沙盒目录</a>
+    </h1>
+  
+
+  
+<div style="font-size:14px;margin-top:15px">
+<span id="busuanzi_value_page_pv"></span>次访问
+</div>
+    </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS沙盒目录</p>
+<p> iOS应用程序只能在为该改程序创建的文件系统中读取文件，不可以去其它地方访问，此区域被成为沙盒。苹果官方文档中有如下一张图介绍沙盒目录：</p>
+<p><img src="http://ww4.sinaimg.cn/mw690/bcfa9841gw1f1nig1mrccj20la0n6gnm.jpg" alt=""></p>
+<p>官方文档对于沙盒中常用的目录做了说明，有如下几个常用目录：</p>
+<ol>
+<li>AppName.app：该目录包含了应用程序本身的数据，包括资源文件和可执行文件等。整个目录是只读的，并且不会被iTunes同步。可通过<code>NSString *bundlePath = [[NSBundle mainBundle] bundlePath];</code>获取到路径地址。</li>
+<li><p>Documents/：我们可以将应用程序的数据文件保存在该目录下。不过这些数据类型仅限于不可再生的数据，可再生的数据文件应该存放在Library/Cache目录下。该目录会被iTunes同步，可通过<code>NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;</code>获取到路径地址。</p>
+<ul>
+<li>Documents/Inbox：外部应用程序需要访问的文件保存在该目录下，例如系统的邮件App要使用到当前应用程序的附件资源就存放在这个目录。沙盒机制是不允许外部程序访问沙盒中的文件，因此苹果的解决方案是将文件拷贝一份到应用的Documents/Inbox目录下。该目录只读，不可修改，会被iTunes同步。</li>
+</ul>
+</li>
+<li><p>Library/：存放默认设置或其它状态信息。除了Caches子目录外其他目录都会被iTunes同步。</p>
+<ul>
+<li>Library/Preferences：NSUserDefaults写的设置数据都会保存到该目录下的一个plist文件中，会被iTunes同步。</li>
+<li>Library/Caches: iTunes不会同步此文件夹，适合存储体积大，不需要备份的非重要数据。可通过<code>NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;</code>获取到路径地址。</li>
+</ul>
+</li>
+<li><p>tmp/：各种临时文件，保存应用再次启动时不需要的文件。而且，当应用不再需要这些文件时应该主动将其删除，因为该目录下的东西随时有可能被系统清理掉，目前已知的一种可能清理的原因是系统磁盘存储空间不足的时候。可通过<code>NSString *tmpPath = NSTemporaryDirectory();</code>获取到路径地址。</p>
+</li>
+</ol>
+<p>写了一个小工具类用来获取这些路径地址：<a href="">https://github.com/hiXgb/BBDocumentPathUtil.git</a></p>
+<p>参考文档：<a href="">https://developer.apple.com/library/mac/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS事件传递和响应机制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
