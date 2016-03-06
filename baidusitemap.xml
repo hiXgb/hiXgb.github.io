@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://hiXgb.github.io/2016/03/06/iOS%E6%B2%99%E7%9B%92%E7%9B%AE%E5%BD%95/</loc>
+    <lastmod>2016-03-06T15:51:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS沙盒目录</title>
+        <pubTime>2016-03-06T15:44:36.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://hiXgb.github.io/2016/03/06/iOS%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E5%92%8C%E5%93%8D%E5%BA%94%E6%9C%BA%E5%88%B6/</loc>
+    <lastmod>2016-03-06T14:03:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS事件传递和响应机制</title>
+        <pubTime>2016-03-06T05:12:57.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://hiXgb.github.io/2016/03/04/2016-03-04-iosduo-xian-cheng/</loc>
+    <lastmod>2016-03-06T05:19:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS多线程</title>
+        <pubTime>2016-03-04T07:36:48.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
