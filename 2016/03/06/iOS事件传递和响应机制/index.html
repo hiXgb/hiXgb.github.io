@@ -17,7 +17,7 @@
 在开发过程中我们经常会遇到一些事件响应优先级的问题，通过搜索知道了hitTest，再根据hitTest去搜索一些类似问题，问题最终是解决了，但是我们得知道为什么是这么解决的。以下内容就是详细说明iOS的事件传递和响应机制。
 ###（一）iOS中的事件iOS的事件分为3大类型">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/bcfa9841gw1f1n20vp32fj20gr0933zm.jpg">
-<meta property="og:updated_time" content="2016-03-06T05:15:49.000Z">
+<meta property="og:updated_time" content="2016-03-06T12:43:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS事件传递和响应机制">
 <meta name="twitter:description" content="本文主要参考了 VV木公子（简书作者）的 史上最详细的iOS之事件的传递和响应机制我按照自己的理解做了排版和一些表述的修改。
@@ -226,7 +226,7 @@
 <p>###（二）iOS中事件的产生和传递</p>
 <p>####2.1 事件的产生</p>
 <ol>
-<li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中。为什么是队列而不是栈？因为队列的特定是先进先出，先产生的事件先处理才符合常理，所以把事件添加到队列。</li>
+<li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中。为什么是队列而不是栈？因为队列的特点是先进先出，先产生的事件先处理才符合常理，所以把事件添加到队列。</li>
 <li>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常先发送事件给应用程序的主窗口（keyWindow）。</li>
 <li>主窗口（keyWindow）会在视图层次结构中找到一个最合适的视图来处理触摸事件，寻找最合适的视图的关键就是hitTest:withEvent:方法。</li>
 </ol>
