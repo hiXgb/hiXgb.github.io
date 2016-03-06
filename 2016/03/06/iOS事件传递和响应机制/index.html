@@ -4,17 +4,26 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>GuobiXie</title>
+  <title>iOS事件传递和响应机制 | GuobiXie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Yesterday You Said Tomorrow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GuobiXie">
-<meta property="og:url" content="http://hiXgb.github.io/index.html">
+  <meta name="description" content="本文主要参考了 VV木公子（简书作者）的 史上最详细的iOS之事件的传递和响应机制我按照自己的理解做了排版和一些表述的修改。
+在开发过程中我们经常会遇到一些事件响应优先级的问题，通过搜索知道了hitTest，再根据hitTest去搜索一些类似问题，问题最终是解决了，但是我们得知道为什么是这么解决的。以下内容就是详细说明iOS的事件传递和响应机制。
+###（一）iOS中的事件iOS的事件分为3大类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS事件传递和响应机制">
+<meta property="og:url" content="http://hiXgb.github.io/2016/03/06/iOS事件传递和响应机制/index.html">
 <meta property="og:site_name" content="GuobiXie">
-<meta property="og:description" content="Yesterday You Said Tomorrow">
+<meta property="og:description" content="本文主要参考了 VV木公子（简书作者）的 史上最详细的iOS之事件的传递和响应机制我按照自己的理解做了排版和一些表述的修改。
+在开发过程中我们经常会遇到一些事件响应优先级的问题，通过搜索知道了hitTest，再根据hitTest去搜索一些类似问题，问题最终是解决了，但是我们得知道为什么是这么解决的。以下内容就是详细说明iOS的事件传递和响应机制。
+###（一）iOS中的事件iOS的事件分为3大类型">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/bcfa9841gw1f1n20vp32fj20gr0933zm.jpg">
+<meta property="og:updated_time" content="2016-03-06T05:15:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GuobiXie">
-<meta name="twitter:description" content="Yesterday You Said Tomorrow">
+<meta name="twitter:title" content="iOS事件传递和响应机制">
+<meta name="twitter:description" content="本文主要参考了 VV木公子（简书作者）的 史上最详细的iOS之事件的传递和响应机制我按照自己的理解做了排版和一些表述的修改。
+在开发过程中我们经常会遇到一些事件响应优先级的问题，通过搜索知道了hitTest，再根据hitTest去搜索一些类似问题，问题最终是解决了，但是我们得知道为什么是这么解决的。以下内容就是详细说明iOS的事件传递和响应机制。
+###（一）iOS中的事件iOS的事件分为3大类型">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/bcfa9841gw1f1n20vp32fj20gr0933zm.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,9 +174,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-iOS事件传递和响应机制" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS事件传递和响应机制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/06/iOS事件传递和响应机制/" class="article-date">
@@ -183,12 +190,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/06/iOS事件传递和响应机制/">iOS事件传递和响应机制</a>
+    <h1 class="article-title" itemprop="name">
+      iOS事件传递和响应机制
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -253,16 +267,19 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/04/2016-03-04-iosduo-xian-cheng/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS多线程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -271,106 +288,28 @@
 
 
 
-
-
-
-  
-    <article id="post-2016-03-04-iosduo-xian-cheng" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/04/2016-03-04-iosduo-xian-cheng/" class="article-date">
-  	<time datetime="2016-03-04T07:36:48.000Z" itemprop="datePublished">2016-03-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/04/2016-03-04-iosduo-xian-cheng/">iOS多线程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h3><p>基于线程</p>
-<h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><p>基于task</p>
-<ul>
-<li><p>同步异步</p>
-<ul>
-<li>dispatch_sync在当前线程同步执行，当前线程被阻塞，后续的代码片段需要等sync任务执行完返回后才被执行，即使加入到并行队列也不开新线程。</li>
-<li>dispatch_async不阻塞当前线程，在当前线程直接返回，后续代码片段接着执行，会开新线程。</li>
-</ul>
-</li>
-<li><p>串行并行队列</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	dispatch_queue_t申明时要注意是否在ARC环境下使用，可用如下方式使用</span><br><span class="line">	</span><br><span class="line">	#if OS_OBJECT_USE_OBJC</span><br><span class="line">@property (nonatomic, strong) dispatch_queue_t queue;</span><br><span class="line">#else</span><br><span class="line">@property (nonatomic, assign) dispatch_queue_t queue;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-<p>  创建方式如下：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_t concurrentQueue = dispatch_queue_create(&quot;com.company.concurrentQueue&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_t serialQueue = dispatch_queue_create(&quot;com.company.serialQueue&quot;, DISPATCH_QUEUE_SERIAL);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>串行队列一次只能执行一个任务，根据入队的顺序执行任务,一个任务执行完下一个任务开始的时间是不确定的    </li>
-<li>并行队列可以同时执行多个任务，系统会维护一个线程池来保证并行队列的执行。系统只保证根据入队的顺序开始执行，因此task的开始执行时间是顺序的，但是每个task的时长不确定，有可能会出现多个task在同一时间需要同时执行，此时就需要另开线程来执行了。线程池会根据当前任务量自行安排线程的数量，以确保任务尽快执行。（因为是系统维护，有可能出现某个时间段线程数过多的问题）</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>使用GCD常见死锁 </p>
-<p>  在同一个串行队列中又用dispatch_sync的方式添加了任务</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	//serialQueue是同一个串行队列</span><br><span class="line">	dispatch_async(serialQueue, ^&#123;</span><br><span class="line">    //some tasks</span><br><span class="line"></span><br><span class="line">    dispatch_sync(serialQueue, ^&#123;  //发生死锁</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>  在主线程dispatch_sync就是上述的常见场景</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在主线程执行</span><br><span class="line">dispatch_sync(mainQueue, ^&#123;  //发生死锁</span><br><span class="line"></span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>部分api记录</p>
-<ul>
-<li>dispatch_apply，在指定的queue循环执行task</li>
-<li><p>dispatch_barrier，在并行队列中，有的时候我们需要让某个任务单独执行，也就是他执行的时候不允许其他任务执行。这时候dispatch_barrier就派上了用场。</p>
-<p>使用dispatch_barrier将任务加入到并行队列之后，任务会在前面任务全部执行完成之后执行，任务执行过程中，其他任务无法执行，直到barrier任务执行完成。<br>一个常见的场景是属性的读写，例子如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	- (void)setName:(NSString *)name</span><br><span class="line">&#123;</span><br><span class="line">    //写的时候阻塞住，等写操作结束后继续后续操作</span><br><span class="line">    dispatch_barrier_async(_concurrentQueue, ^&#123;</span><br><span class="line">        _name = name;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">- (NSString *)name</span><br><span class="line">&#123;</span><br><span class="line">    __block NSString *localString;</span><br><span class="line">    dispatch_sync(_concurrentQueue, ^&#123;</span><br><span class="line">        localString = _name;</span><br><span class="line">    &#125;);</span><br><span class="line">    return localString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>和NSOpration的区别</p>
-</li>
-</ul>
-<p>###NSOpration</p>
-<p>基于队列</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS事件传递和响应机制" data-title="iOS事件传递和响应机制" data-url="http://hiXgb.github.io/2016/03/06/iOS事件传递和响应机制/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -394,8 +333,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: undefined,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
