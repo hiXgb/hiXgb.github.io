@@ -199,28 +199,31 @@
       
         <p>本文主要参考了 <a href="http://www.jianshu.com/users/93131dfba96a/latest_articles" target="_blank" rel="external">VV木公子（简书作者）</a>的 <a href="http://www.jianshu.com/p/2e074db792ba" target="_blank" rel="external">史上最详细的iOS之事件的传递和响应机制</a><br>我按照自己的理解做了排版和一些表述的修改。</p>
 <p>在开发过程中我们经常会遇到一些事件响应优先级的问题，通过搜索知道了hitTest，再根据hitTest去搜索一些类似问题，问题最终是解决了，但是我们得知道为什么是这么解决的。以下内容就是详细说明iOS的事件传递和响应机制。</p>
-<p>###（一）iOS中的事件<br>iOS的事件分为3大类型：</p>
+<p>（一）iOS中的事件</p>
+<p>iOS的事件分为3大类型：</p>
 <ol>
 <li>触摸事件</li>
 <li>加速计事件</li>
 <li>远程控制事件</li>
 </ol>
 <p>本篇只讨论触摸事件</p>
-<p>####1.1 响应者对象（UIResponder）<br>在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接受并处理事件，我们称之为“响应者对象”。以下都是继承自UIResponder的，所以都能接收并处理事件。</p>
+<p>1.1 响应者对象（UIResponder）</p>
+<p>在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接受并处理事件，我们称之为“响应者对象”。以下都是继承自UIResponder的，所以都能接收并处理事件。</p>
 <ul>
 <li>UIApplication</li>
 <li>UIViewController</li>
 <li>UIView</li>
 </ul>
 <p>UIViewController可以通过在.m中覆写相关方法来处理事件，例如touchesBegan、touchesMoved等；UIView则必须通过自定义子类来处理。</p>
-<p>###（二）iOS中事件的产生和传递</p>
-<p>####2.1 事件的产生</p>
+<p>（二）iOS中事件的产生和传递</p>
+<p>2.1 事件的产生</p>
 <ol>
 <li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中。为什么是队列而不是栈？因为队列的特点是先进先出，先产生的事件先处理才符合常理，所以把事件添加到队列。</li>
 <li>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常先发送事件给应用程序的主窗口（keyWindow）。</li>
 <li>主窗口（keyWindow）会在视图层次结构中找到一个最合适的视图来处理触摸事件，寻找最合适的视图的关键就是hitTest:withEvent:方法。</li>
 </ol>
-<p>####2.2 事件的传递<br>事件的传递是自上到下的顺序，即UIApplication-&gt;window-&gt;处理事件最合适的view。</p>
+<p>2.2 事件的传递</p>
+<p>事件的传递是自上到下的顺序，即UIApplication-&gt;window-&gt;处理事件最合适的view。</p>
 <ol>
 <li>首先判断主窗口（keyWindow）自己是否能接受触摸事件</li>
 <li>判断触摸点是否在自己身上</li>
@@ -239,15 +242,16 @@
 <pre><code>注意：默认UIImageView不能接受触摸事件，因为不允许交互，即userInteractionEnabled = NO，所以如果希望UIImageView可以交互，需要userInteractionEnabled = YES。
 </code></pre></li>
 </ol>
-<p>###（三）iOS中事件的响应<br>在iOS程序中无论是最后面的UIWindow还是最前面的某个按钮，它们的摆放是有前后关系的，一个控件可以放到另一个控件上面或下面，那么用户点击某个控件时是触发上面的控件还是下面的控件呢，这种先后关系构成一个链条就叫“响应者链”。也可以说，响应者链是由多个响应者对象连接起来的链条。在iOS中响应者链的关系可以用下图表示：<br><img src="http://ww2.sinaimg.cn/mw690/bcfa9841gw1f1n20vp32fj20gr0933zm.jpg" alt=""></p>
-<p>####3.1 响应者链的事件传递过程:</p>
+<p>（三）iOS中事件的响应</p>
+<p>在iOS程序中无论是最后面的UIWindow还是最前面的某个按钮，它们的摆放是有前后关系的，一个控件可以放到另一个控件上面或下面，那么用户点击某个控件时是触发上面的控件还是下面的控件呢，这种先后关系构成一个链条就叫“响应者链”。也可以说，响应者链是由多个响应者对象连接起来的链条。在iOS中响应者链的关系可以用下图表示：<br><img src="http://ww2.sinaimg.cn/mw690/bcfa9841gw1f1n20vp32fj20gr0933zm.jpg" alt=""></p>
+<p>3.1 响应者链的事件传递过程:</p>
 <ol>
 <li>如果当前view是控制器的view，那么控制器就是上一个响应者，事件就传递给控制器；如果当前view不是控制器的view，那么父视图就是当前view的上一个响应者，事件就传递给它的父视图。</li>
 <li>在视图层次结构的最顶级视图，如果也不能处理收到的事件或消息，则其将事件或消息传递给window对象进行处理。</li>
 <li>如果window对象也不处理，则其将事件或消息传递给UIApplication对象。</li>
 <li>如果UIApplication也不能处理该事件或消息，则将其丢弃。</li>
 </ol>
-<p>###（四）iOS事件传递和响应总结：</p>
+<p>（四）iOS事件传递和响应总结：</p>
 <ol>
 <li>当一个事件发生后，事件会从父控件传给子控件，也就是说由UIApplication -&gt; UIWindow -&gt; UIView -&gt; fit view,以上就是事件的传递，也就是寻找最合适的view的过程。</li>
 <li>接下来是事件的响应。首先看fit view能否处理这个事件，如果不能则会将事件传递给其上级视图（fit view的superView）；如果上级视图仍然无法处理则会继续往上传递；一直传递到视图控制器view controller，首先判断视图控制器的根视图view是否能处理此事件；如果不能则接着判断该视图控制器能否处理此事件，如果还是不能则继续向上传 递；（对于第二个图视图控制器本身还在另一个视图控制器中，则继续交给父视图控制器的根视图，如果根视图不能处理则交给父视图控制器处理）；一直到window，如果window还是不能处理此事件则继续交给application处理，如果最后application还是不能处理此事件则将其丢弃。</li>
